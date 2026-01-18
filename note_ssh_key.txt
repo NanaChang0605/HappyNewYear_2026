@@ -1,0 +1,47 @@
+//add new key for gitbub
+
+ls ~/.ssh
+ssh-keygen -t ed25519 -f ~/.ssh/id_ting -C "github"
+cat ~/.ssh/id_ting.pub
+
+In GitHub：
+Settings → SSH and GPG keys → New SSH key
+Key：paste the result of cat ~/.ssh/id_ting.pub
+
+------------------------------------------------------
+//setting two key for two account
+nano ~/.ssh/config
+# ===== Ting-Repo (new account) =====
+Host github-ting
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_ting
+  IdentitiesOnly yes
+
+# ===== Old GitHub account =====
+Host github-private
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_rsa
+  IdentitiesOnly yes
+
+---
+git remote set-url origin git@github-ting:Ting-Repo/HappyNewYear_2026.git
+
+git remote -v
+origin	git@github-ting:Ting-Repo/HappyNewYear_2026.git (fetch)
+origin	git@github-ting:Ting-Repo/HappyNewYear_2026.git (push)
+
+ssh -T git@github-ting
+Hi Ting-Repo! You've successfully authenticated, but GitHub does not provide shell access.
+
+---
+git remote set-url origin git@github-private:NanaChang0605/HappyNewYear_2026.git
+
+git remote -v
+origin	git@github-private:NanaChang0605/HappyNewYear_2026.git (fetch)
+origin	git@github-private:NanaChang0605/HappyNewYear_2026.git (push)
+
+ssh -T git@github-private
+Hi NanaChang0605! You've successfully authenticated, but GitHub does not provide shell access.
+

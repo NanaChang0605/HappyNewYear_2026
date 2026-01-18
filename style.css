@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 1. Default style: Mobile first (100% width) */
+.main-img {
+  width: 100% !important; 
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+}
+
+/* Only shrink to 50% if the screen is wider than 768px (Desktop) */
+@media screen and (min-width: 769px) {
+  .main-img {
+    width: 50% !important;
+  }
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 30px 0;
+  width: 100%;
+  text-align: center;
+}
+
+ul li {
+  margin: 15px 0;
+}
+
+ul a {
+  text-decoration: none;
+  font-size: 18px;
+  color: #0066cc;
+}
