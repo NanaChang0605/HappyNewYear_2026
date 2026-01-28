@@ -5,19 +5,19 @@ body {
   align-items: center;
 }
 
-/* 1. Default style: Mobile first (100% width) */
 .main-img {
-  width: 100% !important; 
-  max-width: 100%;
-  height: auto;
   display: block;
-  margin: 20px auto;
+  width: 50vw;        /* 電腦：佔螢幕 50% 寬 */
+  max-width: 600px;   /* 不要大到太誇張 */
+  height: auto;       /* 保持比例 */
+  margin: 20px auto;  /* 置中 */
 }
 
-/* Only shrink to 50% if the screen is wider than 768px (Desktop) */
-@media screen and (min-width: 769px) {
+/* 手機 */
+@media (max-width: 768px) {
   .main-img {
-    width: 50% !important;
+    width: 100vw;     /* 手機：滿版 */
+    max-width: 100%;
   }
 }
 
